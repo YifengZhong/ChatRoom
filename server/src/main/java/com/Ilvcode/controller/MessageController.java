@@ -17,7 +17,7 @@ public class MessageController {
 	@MessageMapping("/messaging")
 	@SendTo("/topic/messaging")
 	public MessageInfo messaging(MessageInfo message) throws Exception {
-		System.out.println("in messsaging"+  message.getContent());
+		System.out.println("in messsaging:"+  message.getToUser());
 		
 		Thread.sleep(1000);
 		return message;

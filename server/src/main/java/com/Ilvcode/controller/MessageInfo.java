@@ -3,8 +3,17 @@ package com.Ilvcode.controller;
 public class MessageInfo {
 	private String name;
 	private String content;
+	private String toUser;
 
-    public String getContent() {
+    public String getToUser() {
+		return toUser;
+	}
+
+	public void setToUser(String toUser) {
+		this.toUser = toUser;
+	}
+
+	public String getContent() {
 		return content;
 	}
 
