@@ -1,0 +1,63 @@
+<div class="split left">
+  <div class="">>
+    <button type="button" [class]=getsubmitClass() class="btn btn-primary" (click)="onConnect()">connect</button>
+    <label id="errorLogin" [class]=showError()>Have reached the maxium connection! Please wait a while, and try again.</label>
+    <button [class]=getClaz() type="button" class="btn btn-default" (click)="onDisconnect()">disconnect</button>
+    <form [class]=getClaz() (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div ngModelGroup="userData">
+        <div>
+          <label for="username">Your Name:</label>
+          <input type="text"
+                class="form-control"
+                id="username"
+                [(ngModel)]="username"
+                name="username"
+                [disabled]="isActive"
+                required>
+          <button type="submit" class="btn btn-primary getClaz()" [disabled]="!f.valid">Login in</button>
+        </div>
+      </div>
+    </form>
+    <form [class]=getClaz() (ngSubmit)="onSend(f1)" #f1="ngForm">
+      <div ngModelGroup="userData">
+        <div>
+          <label for="inputText">Message:</label>
+          <br>
+          <textarea rows='10' cols='50'
+                class="form-control"
+                id="userMessage"
+                [(ngModel)]="message_content"
+                name="content"
+                [disabled]="!isActive"
+                required></textarea>
+          <button type="submit" class="btn btn-primary" [disabled]="!f1.valid">send</button>
+        </div>
+      </div>
+    </form>
+    <label [class]=getClaz() for="activeList">Online List:</label>
+    <div [class]=getClaz() style="border:1px solid grey; height:200pt">
+      <table  id="activeList">
+        <tbody>
+            <tr *ngFor="let item of activeList ; let i = index" (click)="setClickedRow(i)">
+              <td>{{item}}</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="split right">
+  <div class="">
+    <table class="table table-striped">
+      <tbody>
+          <tr *ngFor="let item of items">
+            <td>{{item.sender}}</td>
+            <td>{{item.toUser}}</td>
+            <td>{{item.message}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div> 
+
+  

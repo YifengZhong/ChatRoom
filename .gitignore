@@ -1,2 +1,2 @@
-/node_modules/*
+/client_angular2/node_modules/*
 /server/target/*
