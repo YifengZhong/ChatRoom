@@ -16,9 +16,9 @@ export class ConnectService {
         this._stompClient.send("/app/login", {}, JSON.stringify({'fullName': _name}));
 
     }
-    public connect(_name: string):Observable<any> {
+    public connect(address: string):Observable<any> {
         let self = this;
-        let webSocket = new WebSocket('ws://localhost:8080/gs-guide-websocket/websocket');
+        let webSocket = new WebSocket("ws://"+ address + '/websocket');
         this._stompClient = Stomp.over(webSocket);
         this._stompClient.connect({}, function (frame) {
 

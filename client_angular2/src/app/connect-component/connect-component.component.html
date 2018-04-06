@@ -1,7 +1,17 @@
 <div class="split left">
-  <div class="">>
-    <button type="button" [class]=getsubmitClass() class="btn btn-primary" (click)="onConnect()">connect</button>
-    <label id="errorLogin" [class]=showError()>Have reached the maxium connection! Please wait a while, and try again.</label>
+  <div class="">
+    <form [class]=getsubmitClass() (ngSubmit)="onConnect(f2)" #f2="ngForm">
+      <div ngModelGroup="userData">
+        <input type="text"
+            id="connect_address"
+            [(ngModel)]="connect_address"
+            name="connect_address"
+            placeholder="address like localhost:8080/gs-guide-websocket"
+            required>
+        <button type="submit" class="btn btn-primary" [disabled]="!f2.valid">connect</button>
+        <label id="errorLogin" [class]=showError()>Have reached the maxium connection! Please wait a while, and try again.</label>
+      </div>
+    </form>
     <button [class]=getClaz() type="button" class="btn btn-default" (click)="onDisconnect()">disconnect</button>
     <form [class]=getClaz() (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div ngModelGroup="userData">
