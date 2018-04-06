@@ -6,14 +6,20 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserNamePool {
-	private static Set<String> set ; 
+	private Set<String> list = new HashSet<>();
+	private static UserNamePool userNamePool;
 	private UserNamePool() {
 		
 	}
-	public synchronized  static Set<String> getInstance() {
-		if(set == null) {
-			set = new HashSet<>();
+	public synchronized  static UserNamePool getInstance() {
+		if(userNamePool == null) {
+			userNamePool = new UserNamePool();
 		}
-		return set;
+		return userNamePool;
 	}
+	public Set<String> getList() {
+		return list;
+	}
+
+	
 }

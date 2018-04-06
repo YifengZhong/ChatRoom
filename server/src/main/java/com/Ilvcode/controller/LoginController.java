@@ -15,13 +15,13 @@ public class LoginController {
 	//add the user into active list and then broadcast to other users
 	@MessageMapping("/login")
 	@SendTo("/topic/login")
-	public Set<String> login(UserName username) throws Exception {
+	public UserNamePool login(UserName username) throws Exception {
 		System.out.println("in login"+  username.getFullName());
-		Set<String> set = UserNamePool.getInstance();
+		UserNamePool userNamePool = UserNamePool.getInstance();
 		if(username != null) {
-			set.add(username.getFullName());
+			userNamePool.getList().add(username.getFullName());
 		}
-		return set;
+		return userNamePool;
 	}
 	//Remove the user from active list and then broadcast to other users
 	@MessageMapping("/logout")
