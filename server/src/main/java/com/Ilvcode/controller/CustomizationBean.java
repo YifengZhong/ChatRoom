@@ -12,12 +12,24 @@ import org.springframework.stereotype.Component;
 public class CustomizationBean implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
 	@Value("${port}")
 	private Integer myPort;
+	@Value("${useLocalHost}")
+	private Boolean useLocalHost;
 	@Override
 	public void customize(ConfigurableServletWebServerFactory server) {
 		server.setPort(myPort);
-		InetAddress address = InetAddress.getLoopbackAddress();
-		System.out.println("Zhong.address:" + address.toString());
+		InetAddress address; 
+		try {
+			if(useLocalHost) {
+				address = InetAddress.getLocalHost();
+			} else {
+				address = InetAddress.getLoopbackAddress();
+			}
+
+		System.out.println("Zhong1address:" + useLocalHost+ ";"+address.toString());
 		server.setAddress(address);
+		} catch (UnknownHostException e) {
+			System.out.println(e);
+		}
 		
 	}
 
