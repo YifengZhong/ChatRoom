@@ -24,9 +24,7 @@ public class CustomizationBean implements WebServerFactoryCustomizer<Configurabl
 			} else {
 				address = InetAddress.getLoopbackAddress();
 			}
-
-		System.out.println("Zhong1address:" + useLocalHost+ ";"+address.toString());
-		server.setAddress(address);
+			server.setAddress(address);
 		} catch (UnknownHostException e) {
 			System.out.println(e);
 		}
