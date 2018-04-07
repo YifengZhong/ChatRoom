@@ -1,4 +1,4 @@
-package com.Ilvcode.controller;
+package com.Ilvcode;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 

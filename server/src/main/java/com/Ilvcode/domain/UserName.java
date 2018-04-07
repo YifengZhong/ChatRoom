@@ -1,4 +1,4 @@
-package com.Ilvcode.controller;
+package com.Ilvcode.domain;
 
 public class UserName {
 	private String fullName;
