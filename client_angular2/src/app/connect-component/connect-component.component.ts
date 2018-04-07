@@ -8,15 +8,17 @@ import { ConnectService } from "../service/connectionSrv";
 })
 export class ConnectComponentComponent implements OnInit {
 
-  username: "";
+  username: string;
   toUser:string;
   public items = [];
   hideorShow:boolean;
   showErrorMsg:boolean;
   message_content:string;
+ 
   activeList = [];
   isActive:boolean;
   connect_address:string;
+  connect_port:string;
   constructor(public connect: ConnectService) {
     this.hideorShow=false;
     this.showErrorMsg=false;
@@ -24,8 +26,9 @@ export class ConnectComponentComponent implements OnInit {
 
   ngOnInit() {
     this.isActive = false;
-    this.connect_address = "localhost:8080/gs-guide-websocket";
+    this.connect_address = "localhost";
     this.toUser = "";
+    this.connect_port = "8080";
   }
   onSubmit(form) {
     console.log(this.activeList.length);
@@ -47,7 +50,7 @@ export class ConnectComponentComponent implements OnInit {
   onConnect() {
     this.hideorShow = true;
     this.showErrorMsg = false;
-    this.connect.connect(this.connect_address).subscribe(data => {
+    this.connect.connect(this.connect_address, this.connect_port).subscribe(data => {
       if(data.full === true) {
         this.hideorShow = false;
         this.showErrorMsg = true;

@@ -6,7 +6,13 @@
             id="connect_address"
             [(ngModel)]="connect_address"
             name="connect_address"
-            placeholder="address like localhost:8080/gs-guide-websocket"
+            placeholder="address like localhost"
+            required>
+        <input type="text"
+            id="connect_port"
+            [(ngModel)]="connect_port"
+            name="connect_port"
+            placeholder="port like 8080"
             required>
         <button type="submit" class="btn btn-primary" [disabled]="!f2.valid">connect</button>
         <label id="errorLogin" [class]=showError()>Have reached the maxium connection! Please wait a while, and try again.</label>
