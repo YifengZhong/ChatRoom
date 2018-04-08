@@ -35,6 +35,7 @@ public class UserNamePool {
 	}
 	public void updateIsFull() {
 		this.isFull= list.size() >= MAX_NUM_CONNECTION.getNumber();
+		return;
 	}
 	public void romoveUser(String name) {
 		list.remove(name);

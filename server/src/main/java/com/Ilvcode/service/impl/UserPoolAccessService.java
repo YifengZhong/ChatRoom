@@ -2,17 +2,20 @@ package com.Ilvcode.service.impl;
 
 import java.util.Set;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.Ilvcode.dao.UserPoolDao;
 import com.Ilvcode.dao.impl.UserNamePool;
-import com.Ilvcode.dao.impl.UserPoolDaoImp;
 import com.Ilvcode.service.UserPoolService;
 
-public class UserPoolAcessService implements UserPoolService {
+@Service
+public class UserPoolAccessService implements UserPoolService {
 	
 	@Autowired
-	UserPoolDao userPoolDao;
+	private UserPoolDao userPoolDao;
 
 	@Override
 	public UserNamePool getInstance() {

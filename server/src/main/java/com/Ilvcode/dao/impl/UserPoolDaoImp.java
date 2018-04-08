@@ -2,8 +2,11 @@ package com.Ilvcode.dao.impl;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Repository;
+
 import com.Ilvcode.dao.UserPoolDao;
 
+@Repository
 public class UserPoolDaoImp implements UserPoolDao {
 
 	@Override
