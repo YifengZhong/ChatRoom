@@ -15,7 +15,7 @@
             placeholder="port like 8080"
             required>
         <button type="submit" class="btn btn-primary" [disabled]="!f2.valid">connect</button>
-        <label id="errorLogin" [class]=showError()>Have reached the maxium connection! Please wait a while, and try again.</label>
+        <label id="errorLogin" [class]=showError()>{{errMessage}}</label>
       </div>
     </form>
     <button [class]=getClaz() type="button" class="btn btn-default" (click)="onDisconnect()">disconnect</button>

@@ -20,7 +20,7 @@ import com.Ilvcode.WebSocketConfig;
 
 @ContextConfiguration(classes = Application.class)
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = {"port=8080","useLocalHost=false"})
+//@SpringBootTest(properties = {"port=8080","useLocalHost=false"})
 public class UserPoolAccessServiceTest {
 	@Autowired
 	UserPoolAccessService userPoolAccessService;
@@ -81,7 +81,7 @@ public class UserPoolAccessServiceTest {
 		userPoolAccessService.addUser("Sean7");
 		userPoolAccessService.addUser("Sean8");
 		userPoolAccessService.updateIsFull();
-
+		
 		assertTrue("testAdd10UsersThenIsFullReturnTrue",userPoolAccessService.isFull());
 	}
 

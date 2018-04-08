@@ -10,12 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Ilvcode.aspect.annotation.Logging;
 import com.Ilvcode.domain.MessageInfo;
+
+
 
 @RestController
 @CrossOrigin
 public class MessageController {
-
+	@Logging
 	@MessageMapping("/messaging")
 	@SendTo("/topic/messaging")
 	public MessageInfo messaging(MessageInfo message) throws Exception {

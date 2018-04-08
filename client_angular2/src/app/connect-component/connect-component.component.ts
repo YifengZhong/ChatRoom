@@ -14,6 +14,7 @@ export class ConnectComponentComponent implements OnInit {
   hideorShow:boolean;
   showErrorMsg:boolean;
   message_content:string;
+  errMessage:string;
  
   activeList = [];
   isActive:boolean;
@@ -54,9 +55,16 @@ export class ConnectComponentComponent implements OnInit {
       if(data.full === true) {
         this.hideorShow = false;
         this.showErrorMsg = true;
+        this.errMessage = "Over maxium number of connection!";
         return;
       }
-      console.log("data", data);
+      if(data === 1) {
+        console.log("data" + data);
+        this.hideorShow = false;
+        this.showErrorMsg = true;
+        this.errMessage = "Can not find host name or wrong port number!";
+        return;        
+      }
       if(data.list !== undefined) {
         console.log("get activeList", data.list);
         this.activeList = data.list;
