@@ -7,7 +7,7 @@ Springboot + Websocket
 Install Steps(windows 10)
 1. Download the latest XAMPP to set up the Apache and Tomcat Web service
 2. copy front code dist folder which is in github /release_target/ into \xampp\htdocs\.
-3. start up Xampp Control Panel start apache
+3. start up Xampp Control Panel,then start apache
 4. copy back-end jar file messaging-stomp-websocket-0.1.0 to the local computer.
 5. start server by typing
  java -jar -DuseLocalHost=false -Dport=8080 messaging-stomp-websocket-0.1.0.jar
