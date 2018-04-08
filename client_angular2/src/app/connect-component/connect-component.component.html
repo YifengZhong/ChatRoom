@@ -1,6 +1,6 @@
 <div class="split left">
   <div class="">
-    <form [class]=getsubmitClass() (ngSubmit)="onConnect(f2)" #f2="ngForm">
+    <form [class]=getsubmitClass() (ngSubmit)="onConnect()" #f2="ngForm">
       <div ngModelGroup="userData">
         <input type="text"
             id="connect_address"
@@ -34,7 +34,7 @@
         </div>
       </div>
     </form>
-    <form [class]=getClaz() (ngSubmit)="onSend(f1)" #f1="ngForm">
+    <form [class]=getClaz() (ngSubmit)="onSend()" #f1="ngForm">
       <div ngModelGroup="userData">
         <div>
           <label for="inputText">Message:</label>
