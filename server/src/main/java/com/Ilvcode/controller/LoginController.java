@@ -25,7 +25,11 @@ public class LoginController {
 			return userNamePool;
 		}
 		if(username != null) {
-			userNamePool.getList().add(username.getFullName());
+			if(userNamePool.isDuplicated(username.getFullName())) {
+				//TODO return value;
+				return null;
+			}
+			userNamePool.addUser(username.getFullName());
 			userNamePool.updateIsFull();
 		}
 		return userNamePool;
@@ -36,8 +40,10 @@ public class LoginController {
 	public UserNamePool logout(UserName username) throws Exception {
 		System.out.println("in logout" + username.getFullName());
 		UserNamePool userNamePool = UserNamePool.getInstance();
-		userNamePool.getList().remove(username.getFullName());
-		userNamePool.updateIsFull();
+		if(username != null) {
+			userNamePool.romoveUser(username.getFullName());
+			userNamePool.updateIsFull();
+		}
 		return userNamePool;
 	}
 	

@@ -5,8 +5,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.Ilvcode.domain.ConnectionNumLimit;
+
 public class UserNamePool {
-	private final Integer MAX_NUM_CONNECTION = 10;
+	private final ConnectionNumLimit MAX_NUM_CONNECTION = new ConnectionNumLimit(10);
 	private Set<String> list = new HashSet<>();
 	private static UserNamePool userNamePool;
 	private boolean isFull;
@@ -25,12 +27,20 @@ public class UserNamePool {
 	public boolean isFull() {
 		return isFull;
 	}
+	public boolean isDuplicated(String name) {
+		return list.contains(name);
+	}
 	public void setFull(boolean isFull) {
 		this.isFull = isFull;
 	}
 	public void updateIsFull() {
-		this.isFull= list.size() >= MAX_NUM_CONNECTION;
+		this.isFull= list.size() >= MAX_NUM_CONNECTION.getNumber();
 	}
-
+	public void romoveUser(String name) {
+		list.remove(name);
+	}
+	public void addUser(String name) {
+		list.add(name);
+	}
 	
 }
