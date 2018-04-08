@@ -11,7 +11,7 @@ Install Steps(windows 10)
 4. copy back-end jar file messaging-stomp-websocket-0.1.0 to the local computer.
 5. start server by typing
  java -jar -DuseLocalHost=false -Dport=8080 messaging-stomp-websocket-0.1.0.jar
-6. open firefox enter URL localhost/dist/.
+6. open firefox enter URL localhost/dist/
 
 jar file Parameter explanation:
 useLocalHost: 
@@ -51,4 +51,5 @@ Client Requirements:
 -  The client can be able to filter messages by user
 
 -  (Optional) The client can be able to send a message to a selected user
+-  Logout by clicking disconnect.
 
