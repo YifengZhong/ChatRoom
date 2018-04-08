@@ -2,7 +2,7 @@ package com.Ilvcode.service;
 
 import java.util.Set;
 
-import com.Ilvcode.daoImp.UserNamePool;
+import com.Ilvcode.dao.impl.UserNamePool;
 
 public interface UserPoolService {
 	public UserNamePool getInstance();

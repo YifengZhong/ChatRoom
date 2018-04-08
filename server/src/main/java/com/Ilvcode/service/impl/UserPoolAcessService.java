@@ -1,12 +1,12 @@
-package com.Ilvcode.serviceImp;
+package com.Ilvcode.service.impl;
 
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.Ilvcode.dao.UserPoolDao;
-import com.Ilvcode.daoImp.UserNamePool;
-import com.Ilvcode.daoImp.UserPoolDaoImp;
+import com.Ilvcode.dao.impl.UserNamePool;
+import com.Ilvcode.dao.impl.UserPoolDaoImp;
 import com.Ilvcode.service.UserPoolService;
 
 public class UserPoolAcessService implements UserPoolService {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Ilvcode.daoImp.UserNamePool;
+import com.Ilvcode.dao.impl.UserNamePool;
 import com.Ilvcode.domain.UserName;
 
 
