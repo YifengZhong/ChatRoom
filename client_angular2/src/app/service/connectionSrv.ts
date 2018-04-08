@@ -31,9 +31,8 @@ export class ConnectService {
             self._stompClient.subscribe('/topic/login', function (stompResponse) {
                 // stompResponse = {command, headers, body with JSON 
                 // reflecting the object returned by Spring framework}
-                console.log("get the feedback",JSON.parse(stompResponse.body));
                 self._stompSubject.next(JSON.parse(stompResponse.body));
-                //self._stompSubject.next(JSON.parse(stompResponse.body));
+                self._stompSubject.next(JSON.parse(stompResponse.body));
                 
             });
             
@@ -52,8 +51,6 @@ export class ConnectService {
     }
 
     public send(username:string, _payload: string,toUser:string) {
-        //TODO get name
-        console.log("abc",toUser);
         this._stompClient.send("/app/messaging", {}, JSON.stringify({'name': username,'content':_payload,'toUser':toUser}));
     }
 

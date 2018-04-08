@@ -25,15 +25,17 @@ public class LoginController {
 	@Logging
 	public UserNamePool login(UserName username) throws Exception {
 		UserNamePool userNamePool = userPoolService.getInstance();
+		// if Pool is full return directly do not do the login 
 		if (userNamePool.isFull()) {
 			return userNamePool;
 		}
 		if(username != null) {
 			if(userNamePool.isDuplicated(username.getFullName())) {
-				//TODO return value;
+				//if name is duplicated ;
 				return null;
 			}
 			userNamePool.addUser(username.getFullName());
+			//Update the user flag to see if pool is full
 			userNamePool.updateIsFull();
 		}
 		return userNamePool;
@@ -44,6 +46,7 @@ public class LoginController {
 	@Logging
 	public UserNamePool logout(UserName username) throws Exception {
 		UserNamePool userNamePool = UserNamePool.getInstance();
+		//remove the user from pool and update the full flag
 		if(username != null) {
 			userNamePool.romoveUser(username.getFullName());
 			userNamePool.updateIsFull();

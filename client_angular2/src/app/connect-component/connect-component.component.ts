@@ -52,27 +52,28 @@ export class ConnectComponentComponent implements OnInit {
     this.hideorShow = true;
     this.showErrorMsg = false;
     this.connect.connect(this.connect_address, this.connect_port).subscribe(data => {
+      //reaching the maxium number
       if(data.full === true) {
         this.hideorShow = false;
         this.showErrorMsg = true;
         this.errMessage = "Over maxium number of connection!";
         return;
       }
+      //wrong hostname or port number
       if(data === 1) {
-        console.log("data" + data);
         this.hideorShow = false;
         this.showErrorMsg = true;
         this.errMessage = "Can not find host name or wrong port number!";
         return;        
       }
+      //update the active list
       if(data.list !== undefined) {
-        console.log("get activeList", data.list);
         this.activeList = data.list;
         this.isActive = true;
         return;
       }
       let receiver = "";
-      console.log("success2", data.toUser);
+      //send message to receiver
       if(data.toUser !== "") {
         receiver = "@" + data.toUser;
       }

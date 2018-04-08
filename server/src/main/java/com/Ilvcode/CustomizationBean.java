@@ -19,6 +19,7 @@ public class CustomizationBean implements WebServerFactoryCustomizer<Configurabl
 		server.setPort(myPort);
 		InetAddress address; 
 		try {
+			//Based on the input parameter to decide use localhost or loopback address
 			if(useLocalHost) {
 				address = InetAddress.getLocalHost();
 			} else {

@@ -1,8 +1,11 @@
 package com.Ilvcode.domain;
 
 public class MessageInfo {
+	//sender
 	private String name;
+	//message content
 	private String content;
+	//receiver
 	private String toUser;
 
 	public MessageInfo(){}

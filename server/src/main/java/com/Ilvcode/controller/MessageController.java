@@ -22,6 +22,7 @@ public class MessageController {
 	@MessageMapping("/messaging")
 	@SendTo("/topic/messaging")
 	public MessageInfo messaging(MessageInfo message) throws Exception {
+		//get the message from a certain user and broadcast to other users.
 		return message;
 	}
 }
