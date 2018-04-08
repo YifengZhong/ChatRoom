@@ -64,9 +64,15 @@
 </div>
 <div class="split right">
   <div class="">
+    Filter By:
+    <label>{{toUser}}</label>
+    <br>
+    <button type="button" class="btn btn-default" (click)="onFilter()">Go</button>
+    <button type="button" class="btn btn-default" (click)="onDismissFilter()">Clear</button>
+    <br>
     <table class="table table-striped">
       <tbody>
-          <tr *ngFor="let item of items">
+          <tr *ngFor="let item of items | userPipe:filterargs">
             <td>{{item.sender}}</td>
             <td>{{item.toUser}}</td>
             <td>{{item.message}}</td>

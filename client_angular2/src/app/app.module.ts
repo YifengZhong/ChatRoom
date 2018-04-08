@@ -10,12 +10,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ConnectService } from "./service/connectionSrv";
 import { ConnectComponentComponent } from './connect-component/connect-component.component';
+import { UserPipePipe } from './user-pipe.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnectComponentComponent
+    ConnectComponentComponent,
+    UserPipePipe
   ],
   imports: [
     BrowserModule,

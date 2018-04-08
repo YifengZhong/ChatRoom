@@ -15,6 +15,7 @@ export class ConnectComponentComponent implements OnInit {
   showErrorMsg:boolean;
   message_content:string;
   errMessage:string;
+  filterargs = {sender: ''};
  
   activeList = [];
   isActive:boolean;
@@ -73,7 +74,6 @@ export class ConnectComponentComponent implements OnInit {
         return;
       }
       let receiver = "";
-      //send message to receiver
       if(data.toUser !== "") {
         receiver = "@" + data.toUser;
       }
@@ -104,6 +104,12 @@ export class ConnectComponentComponent implements OnInit {
     } else {
       return "addParts";
     }    
+  } 
+  onFilter() {
+    this.filterargs.sender = this.toUser;
+  }
+  onDismissFilter() {
+    this.filterargs.sender = "";
   }
   setClickedRow(i) {
     this.toUser=this.activeList[i];
