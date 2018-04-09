@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class CustomizationBean implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
 	@Value("${port:8080}")
 	private Integer myPort;
-	@Value("${useLocalHost:true}")
+	@Value("${useLocalHost:false}")
 	private Boolean useLocalHost;
 	@Override
 	public void customize(ConfigurableServletWebServerFactory server) {
