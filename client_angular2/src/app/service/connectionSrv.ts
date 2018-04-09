@@ -18,7 +18,7 @@ export class ConnectService {
     }
     public connect(address:string, port:string):Observable<any> {
         let self = this;
-        let webSocket = new WebSocket("ws://"+ address + ':' + port + "/gs-guide-websocket/websocket");
+        let webSocket = new WebSocket("wss://"+ address + ':' + port + "/gs-guide-websocket/websocket");
         this._stompClient = Stomp.over(webSocket);
         this._stompClient.connect({}, function (frame) {
 
@@ -42,7 +42,7 @@ export class ConnectService {
         return self._stompSubject;
     }
     public disConnect(username:string) {
-        console.log("ccc");
+
         this._stompClient.send("/app/logout", {}, JSON.stringify({'fullName': username}))
         if (this._stompClient !== null) {
             this._stompClient.disconnect();
