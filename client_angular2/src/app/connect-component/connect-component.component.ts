@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { ConnectService } from "../service/connectionSrv";
 
 @Component({
@@ -31,6 +31,12 @@ export class ConnectComponentComponent implements OnInit {
     this.connect_address = "localhost";
     this.toUser = "";
     this.connect_port = "8080";
+  }
+  @HostListener('window:beforeunload', [ '$event' ])
+  beforeUnloadHander(event) {
+    if(this.isActive === true) {
+      this.onDisconnect();
+    }
   }
   onSubmit(form) {
     console.log(this.activeList.length);
