@@ -1,2 +1,8 @@
 /client_angular2/node_modules/*
+# compiled output
+/client_angular2/dist
+/client_angular2/dist-server
+/client_angular2/tmp
+/client_angular2/out-tsc
+
 /server/target/*
